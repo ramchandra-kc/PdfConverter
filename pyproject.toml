@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdf-extractor"
+version = "1.0.0"
+description = "Unified PDF extraction tool supporting both OCR and pymupdf4llm methods"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    {name = "PDF Extract Contributors"}
+]
+keywords = ["pdf", "extraction", "ocr", "pymupdf", "html", "markdown", "json"]
+
+dependencies = [
+    "Pillow>=9.0.0",
+    "numpy>=1.21.0",
+    "opencv-python>=4.5.0",
+    "pdf2image>=1.16.0",
+    "PyMuPDF>=1.21.0",
+    "pymupdf4llm @ git+https://github.com/ramchandra-kc/pymupdf4llm.git#subdirectory=pymupdf4llm",
+    "pytesseract>=0.3.10",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=3.0.0",
+    "black>=22.0.0",
+    "ruff>=0.0.200",
+]
+
+[project.scripts]
+pdf-extractor = "pdf_extractor.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["pdf_extractor*"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
