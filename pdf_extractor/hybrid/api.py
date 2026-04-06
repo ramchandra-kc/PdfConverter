@@ -118,7 +118,8 @@ def extract_with_hybrid(
                 log_progress(f"Annotated PDF with page boxes saved to: {annotated_pdf_path}", level="INFO")
 
         log_progress(f"Hybrid extraction completed. Tables replaced via OCR: {replaced_tables}", level="INFO")
-
+        
+        log_progress(json.dumps(extracted_json_paths), level="DATA")
         return {
             "success": True,
             "output_path": str(output_dir),

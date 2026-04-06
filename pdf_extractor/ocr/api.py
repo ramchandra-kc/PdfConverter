@@ -159,7 +159,8 @@ def extract_with_ocr(
             log_progress(f"Annotated PDF with page boxes saved: {annotated_pdf_path}", level="INFO")
         else:
             log_progress("Failed to create annotated PDF with page boxes", level="ERROR")
-
+            
+    log_progress(json.dumps(extracted_json_paths), level="DATA")
     return {
         "success": True,
         "output_path": str(output_dir),

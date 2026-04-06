@@ -140,7 +140,6 @@ def extract_with_pymupdf(
                 extracted_text_paths.append(str(merged_text_path))
                 log_progress(f"Saved: {merged_text_path}", level="INFO")
 
-        log_progress(json.dumps(extracted_json_paths), level="DATA")
         log_progress("Extraction completed successfully", level="INFO")
 
         if draw_page_boxes_pdf:
@@ -154,6 +153,7 @@ def extract_with_pymupdf(
             if annotated_pdf_path:
                 log_progress(f"Annotated PDF with page boxes saved to: {annotated_pdf_path}", level="INFO")
 
+        log_progress(json.dumps(extracted_json_paths), level="DATA")
         return {
             "success": True,
             "output_path": str(output_dir),
