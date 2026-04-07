@@ -62,15 +62,78 @@ def _render_table(cells: list[dict[str, Any]], text_format: str) -> str:
     return _table_to_markdown(cells)
 
 
+def _replace_table_spans_in_markdown(page_data: dict[str, Any]) -> str | None:
+    """Replace markdown table spans in page text using table box pos ranges."""
+    original_text = str(page_data.get("text", ""))
+    if not original_text:
+        return None
+
+    page_boxes = page_data.get("page_boxes", [])
+    text_length = len(original_text)
+    replacements: list[tuple[int, int, str, int]] = []
+
+    for box in page_boxes:
+        if box.get("class") != "table":
+            continue
+
+        pos = box.get("pos")
+        if not isinstance(pos, list) or len(pos) != 2:
+            continue
+
+        start, end = pos
+        if not isinstance(start, int) or not isinstance(end, int):
+            continue
+
+        if start < 0 or end < start or end > text_length:
+            log_progress(
+                f"Skipping invalid markdown table span: start={start}, end={end}, len={text_length}",
+                level="WARNING",
+            )
+            continue
+
+        replacement = str(box.get("text", ""))
+        if not replacement:
+            continue
+
+        replacements.append((start, end, replacement, int(box.get("index", -1))))
+
+    if not replacements:
+        return original_text
+
+    replacements.sort(key=lambda item: (item[0], item[1], item[3]))
+
+    parts: list[str] = []
+    cursor = 0
+    for start, end, replacement, box_index in replacements:
+        if start < cursor:
+            log_progress(
+                f"Skipping overlapping markdown table span for box index={box_index}",
+                level="WARNING",
+            )
+            continue
+
+        parts.append(original_text[cursor:start])
+        parts.append(replacement)
+        cursor = end
+
+    parts.append(original_text[cursor:])
+    return "".join(parts)
+
+
 def _rebuild_page_text(page_data: dict[str, Any], text_format: str) -> str:
     """Rebuild page text from page_boxes after table replacement."""
     page_boxes = page_data.get("page_boxes", [])
-    parts = [str(box.get("text", "")) for box in page_boxes]
 
     if text_format == "html":
+        parts = [str(box.get("text", "")) for box in page_boxes]
         page_number = page_data.get("metadata", {}).get("page_number", "")
         return f'<section class="page" data-page="{page_number}">' + "\n".join(parts)
 
+    rebuilt = _replace_table_spans_in_markdown(page_data)
+    if rebuilt is not None:
+        return rebuilt
+
+    parts = [str(box.get("text", "")) for box in page_boxes]
     return "\n\n".join(parts).strip() + "\n"
 
 

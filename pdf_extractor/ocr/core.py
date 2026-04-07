@@ -23,7 +23,7 @@ def extract_regions_from_image(
 
     all_regions = refine_text(img, all_regions, lang)
 
-    log_progress("Extracting table cells ...", level="INFO")
+    log_progress("Extracting table cells ...", level="DEBUG")
     for region in all_regions:
         if region["kind"] == "table":
             region["cells"] = extract_table_cells(img, region, lang)
