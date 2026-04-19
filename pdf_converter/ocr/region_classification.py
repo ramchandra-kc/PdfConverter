@@ -6,7 +6,7 @@ import re
 
 import numpy as np
 
-from pdf_extractor.ocr.ocr_utils import avg_blob_height, quick_ocr
+from pdf_converter.ocr.ocr_utils import avg_blob_height, quick_ocr
 
 _BULLET_RE = re.compile(
     r"^\s*(?:"

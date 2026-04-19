@@ -4,18 +4,18 @@ from __future__ import annotations
 
 from pathlib import Path
 import json
-from pdf_extractor.ocr.core import build_page_boxes, extract_regions_from_image
-from pdf_extractor.ocr.ocr_utils import load_image
-from pdf_extractor.ocr.render import (
+from pdf_converter.ocr.core import build_page_boxes, extract_regions_from_image
+from pdf_converter.ocr.ocr_utils import load_image
+from pdf_converter.ocr.render import (
     render_html_from_ocr_regions,
     render_markdown_from_ocr_regions,
 )
-from pdf_extractor.shared.utils import (
+from pdf_converter.shared.utils import (
     build_page_metadata,
     log_progress,
     get_page_count,
 )
-from pdf_extractor.shared.output_formatter import (
+from pdf_converter.shared.output_formatter import (
     save_html_output,
     save_markdown_output,
 )
@@ -149,7 +149,7 @@ def extract_with_ocr(
             log_progress(f"Saved: {merged_text_path}", level="INFO")
     
     if draw_page_boxes_pdf:
-        from pdf_extractor.shared.pdf_annotations import draw_page_boxes_pdf
+        from pdf_converter.shared.pdf_annotations import draw_page_boxes_pdf
         annotated_pdf_path = draw_page_boxes_pdf(
             pdf_path=input_path,
             extracted_json_paths=extracted_json_paths,

@@ -8,7 +8,7 @@ from typing import Any
 
 import fitz
 
-from pdf_extractor.shared.utils import log_progress
+from pdf_converter.shared.utils import log_progress
 
 
 def draw_page_boxes_pdf(

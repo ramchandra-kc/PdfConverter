@@ -8,12 +8,12 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from pdf_extractor import extract_from_pdf
+from pdf_converter import extract_from_pdf
 
 def pymupdf_test():
     # Example usage
-    input_pdf = "/Users/ram/Documents/Github/PdfExtractor/data/sample.pdf"
-    output_base_dir = "/Users/ram/Documents/Github/PdfExtractor/outputs"
+    input_pdf = "/Users/ram/Documents/Github/PdfConverter/data/sample.pdf"
+    output_base_dir = "/Users/ram/Documents/Github/PdfConverter/outputs"
 
     # Extract using PyMuPDF method with markdown text format and page-per-json output
     extract_from_pdf(
@@ -59,8 +59,8 @@ def pymupdf_test():
 
 def ocr_test():
     # Example usage
-    input_pdf = "/Users/ram/Documents/Github/PdfExtractor/data/sample.pdf"
-    output_base_dir = "/Users/ram/Documents/Github/PdfExtractor/outputs"
+    input_pdf = "/Users/ram/Documents/Github/PdfConverter/data/sample.pdf"
+    output_base_dir = "/Users/ram/Documents/Github/PdfConverter/outputs"
 
      # Extract using ocr method with markdown text format and page-per-json output
     extract_from_pdf(
@@ -106,8 +106,8 @@ def ocr_test():
 
 def hybrid_test():
     # Example usage
-    input_pdf = "/Users/ram/Documents/Github/PdfExtractor/data/sample.pdf"
-    output_base_dir = "/Users/ram/Documents/Github/PdfExtractor/outputs"
+    input_pdf = "/Users/ram/Documents/Github/PdfConverter/data/sample.pdf"
+    output_base_dir = "/Users/ram/Documents/Github/PdfConverter/outputs"
 
      # Extract using hybrid method with markdown text format and page-per-json output
     extract_from_pdf(
@@ -153,8 +153,8 @@ def hybrid_test():
 
 def one_test():
     # Example usage
-    input_pdf = "/Users/ram/Documents/Github/PdfExtractor/data/sample.pdf"
-    output_base_dir = "/Users/ram/Documents/Github/PdfExtractor/outputs"
+    input_pdf = "/Users/ram/Documents/Github/PdfConverter/data/sample.pdf"
+    output_base_dir = "/Users/ram/Documents/Github/PdfConverter/outputs"
 
    # Extract using PyMuPDF method with HTML text format and single JSON output
     extract_from_pdf(
@@ -167,9 +167,9 @@ def one_test():
         write_text_file=True,
     )
 
-# if __name__ == "__main__":
-#     pymupdf_test()
-#     ocr_test()
-#     one_test()
-#     hybrid_test()
+if __name__ == "__main__":
+    # pymupdf_test()
+    # ocr_test()
+    # one_test()
+    hybrid_test()
 

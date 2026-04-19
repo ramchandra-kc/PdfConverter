@@ -5,10 +5,10 @@ from __future__ import annotations
 import math
 from pathlib import Path
 
-from pdf_extractor.ocr.region_classification import classify_regions, refine_text
-from pdf_extractor.ocr.region_segmentation import segment_text_regions
-from pdf_extractor.ocr.table_extraction import detect_table_regions, extract_table_cells
-from pdf_extractor.shared.utils import build_page_metadata, log_progress
+from pdf_converter.ocr.region_classification import classify_regions, refine_text
+from pdf_converter.ocr.region_segmentation import segment_text_regions
+from pdf_converter.ocr.table_extraction import detect_table_regions, extract_table_cells
+from pdf_converter.shared.utils import build_page_metadata, log_progress
 
 
 def extract_regions_from_image(

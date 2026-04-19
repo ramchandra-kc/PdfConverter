@@ -1,4 +1,4 @@
-"""Shared utilities for pdf-extractor."""
+"""Shared utilities for pdf-converter."""
 
 from __future__ import annotations
 

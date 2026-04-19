@@ -5,10 +5,10 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from pdf_extractor.pymupdf.core import get_total_pages, log_progress
-from pdf_extractor.pymupdf.core import get_html_per_page
-from pdf_extractor.pymupdf.core import get_md_per_page
-from pdf_extractor.shared.output_formatter import (
+from pdf_converter.pymupdf.core import get_total_pages, log_progress
+from pdf_converter.pymupdf.core import get_html_per_page
+from pdf_converter.pymupdf.core import get_md_per_page
+from pdf_converter.shared.output_formatter import (
     save_html_output,
     save_markdown_output,
 )
@@ -143,7 +143,7 @@ def extract_with_pymupdf(
         log_progress("Extraction completed successfully", level="INFO")
 
         if draw_page_boxes_pdf:
-            from pdf_extractor.shared.pdf_annotations import draw_page_boxes_pdf
+            from pdf_converter.shared.pdf_annotations import draw_page_boxes_pdf
 
             annotated_pdf_path = draw_page_boxes_pdf(
                 pdf_path=input_path,

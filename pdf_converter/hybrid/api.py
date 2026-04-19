@@ -5,10 +5,10 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from pdf_extractor.hybrid.core import hybrid_extract_pages
-from pdf_extractor.pymupdf.core import get_total_pages
-from pdf_extractor.shared.output_formatter import save_html_output, save_markdown_output
-from pdf_extractor.shared.utils import log_progress
+from pdf_converter.hybrid.core import hybrid_extract_pages
+from pdf_converter.pymupdf.core import get_total_pages
+from pdf_converter.shared.output_formatter import save_html_output, save_markdown_output
+from pdf_converter.shared.utils import log_progress
 
 
 def extract_with_hybrid(
@@ -107,7 +107,7 @@ def extract_with_hybrid(
                 log_progress(f"Saved: {merged_text_path}", level="INFO")
 
         if draw_page_boxes_pdf:
-            from pdf_extractor.shared.pdf_annotations import draw_page_boxes_pdf
+            from pdf_converter.shared.pdf_annotations import draw_page_boxes_pdf
 
             annotated_pdf_path = draw_page_boxes_pdf(
                 pdf_path=input_path,

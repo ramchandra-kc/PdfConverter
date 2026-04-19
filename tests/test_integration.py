@@ -1,4 +1,4 @@
-"""Integration tests for pdf-extractor."""
+"""Integration tests for pdf-converter."""
 
 import sys
 from pathlib import Path
@@ -11,10 +11,10 @@ sys.path.insert(0, str(project_root))
 def test_imports():
     """Test that all modules can be imported."""
     try:
-        from pdf_extractor import extract_from_pdf, extract_with_ocr, extract_with_pymupdf
-        from pdf_extractor.ocr import extract_with_ocr as ocr_api
-        from pdf_extractor.pymupdf import extract_with_pymupdf as pymupdf_api
-        from pdf_extractor.shared import (
+        from pdf_converter import extract_from_pdf, extract_with_ocr, extract_with_pymupdf
+        from pdf_converter.ocr import extract_with_ocr as ocr_api
+        from pdf_converter.pymupdf import extract_with_pymupdf as pymupdf_api
+        from pdf_converter.shared import (
             create_base_parser,
             validate_arguments,
             log_progress,
@@ -30,7 +30,7 @@ def test_imports():
 def test_cli_parser():
     """Test CLI argument parser."""
     try:
-        from pdf_extractor.shared import create_base_parser
+        from pdf_converter.shared import create_base_parser
 
         parser = create_base_parser()
         
@@ -55,7 +55,7 @@ def test_cli_parser():
 def test_shared_utils():
     """Test shared utility functions."""
     try:
-        from pdf_extractor.shared import build_page_metadata, get_output_path
+        from pdf_converter.shared import build_page_metadata, get_output_path
         from pathlib import Path
 
         # Test metadata building
@@ -79,7 +79,7 @@ def test_shared_utils():
 def test_output_formatter():
     """Test output formatting functions."""
     try:
-        from pdf_extractor.shared import build_output_json
+        from pdf_converter.shared import build_output_json
 
         # Test JSON output structure
         metadata = {
@@ -114,8 +114,8 @@ def test_output_formatter():
 def test_extraction_methods_structure():
     """Test that extraction method modules have required exports."""
     try:
-        from pdf_extractor.ocr import extract_with_ocr
-        from pdf_extractor.pymupdf import extract_with_pymupdf
+        from pdf_converter.ocr import extract_with_ocr
+        from pdf_converter.pymupdf import extract_with_pymupdf
 
         # Check that functions are callable
         assert callable(extract_with_ocr)
@@ -131,7 +131,7 @@ def test_extraction_methods_structure():
 def run_all_tests():
     """Run all integration tests."""
     print("=" * 60)
-    print("PDF-Extractor Integration Tests")
+    print("pdf-converter Integration Tests")
     print("=" * 60)
     print()
 

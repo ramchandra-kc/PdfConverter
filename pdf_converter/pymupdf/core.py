@@ -7,8 +7,8 @@ import fitz
 import math
 import json
 import pymupdf4llm
-from pdf_extractor.pymupdf.render import render_box
-from pdf_extractor.shared.utils import log_progress
+from pdf_converter.pymupdf.render import render_box
+from pdf_converter.shared.utils import log_progress
 
 def get_total_pages(pdf_path: str) -> int:
     """Get total page count from PDF."""

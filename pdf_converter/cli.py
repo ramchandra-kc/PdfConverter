@@ -1,13 +1,13 @@
-"""Unified CLI for pdf-extractor."""
+"""Unified CLI for pdf-converter."""
 
 from __future__ import annotations
 
 import sys
 
-from pdf_extractor.hybrid import extract_with_hybrid
-from pdf_extractor.ocr import extract_with_ocr
-from pdf_extractor.pymupdf import extract_with_pymupdf
-from pdf_extractor.shared import (
+from pdf_converter.hybrid import extract_with_hybrid
+from pdf_converter.ocr import extract_with_ocr
+from pdf_converter.pymupdf import extract_with_pymupdf
+from pdf_converter.shared import (
     create_base_parser,
     validate_arguments,
     print_method_info,

@@ -13,22 +13,22 @@ def create_base_parser() -> argparse.ArgumentParser:
         epilog="""
 Examples:
     # OCR method for scanned PDF with JSON output
-    pdf-extractor --input sample.pdf --method ocr --output output.json
+    pdf-converter --input sample.pdf --method ocr --output output.json
 
     # OCR with markdown file output in addition to JSON
-    pdf-extractor --input sample.pdf --method ocr -f md --write-text-file
+    pdf-converter --input sample.pdf --method ocr -f md --write-text-file
   
     # PyMuPDF method for native PDF with Markdown text in JSON
-    pdf-extractor --input sample.pdf --method pymupdf -f md
+    pdf-converter --input sample.pdf --method pymupdf -f md
   
     # OCR with page range and custom language
-    pdf-extractor --input sample.pdf --method ocr --start-page 2 --end-page 5 --lang fra
+    pdf-converter --input sample.pdf --method ocr --start-page 2 --end-page 5 --lang fra
   
     # PyMuPDF with per-page JSON output
-    pdf-extractor --input sample.pdf --method pymupdf --page-per-json
+    pdf-converter --input sample.pdf --method pymupdf --page-per-json
 
     # Hybrid method (PyMuPDF + OCR tables)
-    pdf-extractor --input sample.pdf --method hybrid -f html
+    pdf-converter --input sample.pdf --method hybrid -f html
         """,
     )
 

@@ -3,7 +3,7 @@ requires = ["setuptools>=45", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pdf-extractor"
+name = "pdf-converter"
 version = "1.0.0"
 description = "Unified PDF extraction tool supporting both OCR and pymupdf4llm methods"
 readme = "README.md"
@@ -32,10 +32,10 @@ dev = [
 ]
 
 [project.scripts]
-pdf-extractor = "pdf_extractor.cli:main"
+pdf-converter = "pdf_converter.cli:main"
 
 [tool.setuptools.packages.find]
-include = ["pdf_extractor*"]
+include = ["pdf_converter*"]
 
 [tool.black]
 line-length = 100

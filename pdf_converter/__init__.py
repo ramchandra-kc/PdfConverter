@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from pdf_extractor.hybrid import extract_with_hybrid
-from pdf_extractor.ocr import extract_with_ocr
-from pdf_extractor.pymupdf import extract_with_pymupdf
+from pdf_converter.hybrid import extract_with_hybrid
+from pdf_converter.ocr import extract_with_ocr
+from pdf_converter.pymupdf import extract_with_pymupdf
 
 __version__ = "1.0.0"
 __author__ = "PDF Extract Contributors"

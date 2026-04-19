@@ -1,1 +1,1 @@
-"""Tests for pdf-extractor."""
+"""Tests for pdf-converter."""

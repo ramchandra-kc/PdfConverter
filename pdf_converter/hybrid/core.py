@@ -8,10 +8,10 @@ import cv2
 import fitz
 import numpy as np
 
-from pdf_extractor.ocr.render import _table_to_html_ocr, _table_to_markdown
-from pdf_extractor.ocr.table_extraction import detect_table_regions, extract_table_cells
-from pdf_extractor.pymupdf.core import get_html_per_page, get_md_per_page
-from pdf_extractor.shared.utils import log_progress
+from pdf_converter.ocr.render import _table_to_html_ocr, _table_to_markdown
+from pdf_converter.ocr.table_extraction import detect_table_regions, extract_table_cells
+from pdf_converter.pymupdf.core import get_html_per_page, get_md_per_page
+from pdf_converter.shared.utils import log_progress
 
 
 def _largest_table(tables: list[dict[str, Any]]) -> dict[str, Any] | None:
